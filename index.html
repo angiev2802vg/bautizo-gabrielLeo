@@ -90,7 +90,7 @@
       border-radius: 0 0 12px 12px;
     }
 
-    /* SELLO DE CERA CON TU PROPIA FOTO DE PALOMA */
+    /* SELLO DE CERA CON TU IMAGEN (sello.png) */
     .wax-seal {
       position: absolute;
       top: 125px;
@@ -136,12 +136,12 @@
       50% { opacity: 1; transform: translateX(-50%) scale(1.05); }
     }
 
-    /* TARJETA CON LA IMAGEN DE FONDO */
+    /* TARJETA CON LA IMAGEN DE FONDO (fondo.png) */
     .card {
       width: 96%;
       max-width: 390px;
       background-color: var(--marfil);
-      background-image: url('fondo.jpg');
+      background-image: url('fondo.png');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -326,7 +326,6 @@
       gap: 10px;
     }
 
-    /* CONTENEDOR DE TU ICONO PERSONALIZADO */
     .event-icon-img {
       width: 32px;
       height: 32px;
@@ -440,8 +439,8 @@
           <div class="events-container">
             
             <div class="event-card">
-              <!-- ICONO FOTO IGLESIA -->
-              <img src="iglesia.png" alt="Iglesia" class="event-icon-img" onerror="this.style.display='none'" />
+              <!-- ICONO IGLESIA (icono-iglesia.png) -->
+              <img src="icono-iglesia.png" alt="Iglesia" class="event-icon-img" />
               <div class="event-details">
                 <div class="event-type">Ceremonia Religiosa</div>
                 <div class="event-title">Templo San Martín de Porres</div>
@@ -451,8 +450,8 @@
             </div>
 
             <div class="event-card">
-              <!-- ICONO FOTO RECEPCIÓN -->
-              <img src="recepcion.png" alt="Recepción" class="event-icon-img" onerror="this.style.display='none'" />
+              <!-- ICONO RECEPCIÓN (icono-recepcion.png) -->
+              <img src="icono-recepcion.png" alt="Recepción" class="event-icon-img" />
               <div class="event-details">
                 <div class="event-type">Recepción &amp; Cena</div>
                 <div class="event-title">Eventos La Carreta</div>
@@ -476,7 +475,8 @@
       <div class="envelope-flap"></div>
       <div class="envelope-pocket"></div>
       <div class="wax-seal">
-        <img src="sello.png" alt="Paloma" onerror="this.style.display='none'" />
+        <!-- SELLO (sello.png) -->
+        <img src="sello.png" alt="Paloma" />
       </div>
       <div class="tap-hint">Toca para abrir</div>
     </div>
