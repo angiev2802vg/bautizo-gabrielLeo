@@ -6,14 +6,14 @@
   <title>Bautizo de Gabriel</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Alex+Brush&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
   <style>
     :root {
       --salvia: #6b7f6c;
-      --salvia-dark: #445445;
-      --marfil: #fbf8f3;
-      --dorado: #b89b5e;
-      --texto: #333d34;
+      --salvia-dark: #3b4a3c;
+      --salvia-soft: #a3b3a4;
+      --marfil: #faf8f5;
+      --texto: #2a332b;
     }
 
     * {
@@ -23,7 +23,7 @@
     }
 
     body {
-      background-color: #f2ece4;
+      background-color: #f0ebe4;
       font-family: 'Montserrat', sans-serif;
       color: var(--texto);
       display: flex;
@@ -41,15 +41,15 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      min-height: 620px;
+      min-height: 640px;
     }
 
-    /* SOBRE REALISTA */
+    /* SOBRE ELEGANTE */
     .envelope {
       width: 100%;
       max-width: 390px;
       height: 270px;
-      background: #e2d7c0;
+      background: #ded6c5;
       position: absolute;
       bottom: 0;
       border-radius: 0 0 12px 12px;
@@ -69,7 +69,7 @@
       left: 0;
       width: 100%;
       height: 140px;
-      background: #d8cbaa;
+      background: #d1c6af;
       clip-path: polygon(0 0, 50% 100%, 100% 0);
       transform-origin: top;
       transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
@@ -83,36 +83,40 @@
       left: 0;
       width: 100%;
       height: 270px;
-      background: linear-gradient(135deg, #ebdcb9 0%, #d8cbaa 100%);
+      background: linear-gradient(135deg, #e8dfcc 0%, #d1c6af 100%);
       clip-path: polygon(0 100%, 0 40%, 50% 85%, 100% 40%, 100% 100%);
       z-index: 6;
       pointer-events: none;
       border-radius: 0 0 12px 12px;
     }
 
+    /* SELLO DE CERA CON PALOMA */
     .wax-seal {
       position: absolute;
       top: 125px;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 58px;
-      height: 58px;
-      background: radial-gradient(circle, #6b7f6c 0%, #445445 100%);
+      width: 60px;
+      height: 60px;
+      background: radial-gradient(circle, #6b7f6c 0%, #3b4a3c 100%);
       border-radius: 50%;
       z-index: 7;
       display: flex;
       justify-content: center;
       align-items: center;
       box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      border: 1px solid rgba(212, 175, 55, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.4);
       transition: transform 0.4s ease, opacity 0.4s ease;
     }
 
-    .wax-seal span {
-      font-family: 'Cinzel', serif;
-      color: #fbf8f3;
-      font-size: 22px;
-      font-weight: 700;
+    .wax-seal svg {
+      width: 32px;
+      height: 32px;
+      fill: none;
+      stroke: #faf8f5;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
     .tap-hint {
@@ -135,13 +139,13 @@
       50% { opacity: 1; transform: translateX(-50%) scale(1.05); }
     }
 
-    /* TARJETA CON ESTILO ROCOCÓ Y QUERUBINES */
+    /* TARJETA INTERIOR CON MARCO VERDE DE QUERUBINES Y HORTENSIAS */
     .card {
       width: 94%;
       max-width: 375px;
       background-color: var(--marfil);
       border-radius: 18px;
-      padding: 28px 20px;
+      padding: 30px 20px 26px;
       box-shadow: 0 12px 35px rgba(0,0,0,0.12);
       position: absolute;
       bottom: 20px;
@@ -151,20 +155,21 @@
       opacity: 0;
       transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.22);
       text-align: center;
-      border: 1px solid #dfd5c3;
+      border: 1px solid #dcd4c5;
       pointer-events: none;
+      overflow: hidden;
     }
 
-    .card-border {
+    /* MARCO BOTÁNICO DE QUERUBINES Y HORTENSIAS EN VERDE SALVIA */
+    .botanical-frame {
       position: absolute;
-      top: 8px;
-      left: 8px;
-      right: 8px;
-      bottom: 8px;
-      border: 1px solid var(--salvia);
-      border-radius: 12px;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       pointer-events: none;
-      opacity: 0.4;
+      z-index: 1;
+      opacity: 0.85;
     }
 
     /* ANIMACIÓN AL ABRIR */
@@ -195,18 +200,16 @@
       z-index: 2;
     }
 
-    /* ILUSTRACIÓN QUERUBÍN CON HORTENSIAS (SVG LINE ART VERDE SALVIA) */
-    .cherub-art {
-      width: 140px;
-      height: 75px;
-      margin: 0 auto 5px;
+    .cross-icon {
+      margin: 0 auto 6px;
+      color: var(--salvia);
     }
 
     .verse {
       font-style: italic;
       font-size: 10.5px;
       color: var(--salvia-dark);
-      max-width: 90%;
+      max-width: 88%;
       margin: 0 auto 10px;
       line-height: 1.45;
     }
@@ -217,48 +220,39 @@
       font-size: 9px;
       display: block;
       margin-top: 3px;
-      color: var(--dorado);
+      color: var(--salvia);
       letter-spacing: 1px;
     }
 
     .header-subtitle {
-      font-family: 'Great Vibes', cursive;
-      font-size: 32px;
+      font-family: 'Alex Brush', cursive;
+      font-size: 34px;
       color: var(--salvia);
-      margin-bottom: -4px;
+      margin-bottom: -6px;
     }
 
     .main-title {
       font-family: 'Cinzel', serif;
-      font-size: 28px;
+      font-size: 29px;
       font-weight: 700;
-      letter-spacing: 3px;
+      letter-spacing: 4px;
       color: var(--salvia-dark);
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       text-transform: uppercase;
-    }
-
-    .divider-botanical {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      margin: 8px 0;
-      color: var(--salvia);
     }
 
     .divider-line {
       height: 1px;
-      width: 40px;
-      background: var(--dorado);
-      opacity: 0.5;
+      width: 50px;
+      background: var(--salvia-soft);
+      margin: 10px auto;
     }
 
     .section-label {
       font-size: 8.5px;
       text-transform: uppercase;
       letter-spacing: 2px;
-      color: var(--dorado);
+      color: var(--salvia);
       margin-bottom: 3px;
       font-weight: 600;
     }
@@ -275,23 +269,44 @@
       font-weight: 600;
     }
 
+    /* ESTRUCTURA HORIZONTAL DE PADRINOS EN 2 RENGLONES ALINEADOS */
     .padrinos-container {
       background: rgba(107, 127, 108, 0.05);
       border-radius: 8px;
-      padding: 10px 6px;
+      padding: 10px 8px;
       margin: 10px 0;
       border: 1px solid rgba(107, 127, 108, 0.15);
     }
 
-    .padrinos-row {
-      font-size: 10.5px;
+    .padrinos-table {
+      display: table;
+      width: 100%;
+      margin-top: 4px;
+    }
+
+    .padrinos-row-header, .padrinos-row-footer {
+      display: table-row;
+    }
+
+    .padrino-col {
+      display: table-cell;
+      width: 33.33%;
+      font-size: 10px;
       color: var(--salvia-dark);
       font-weight: 500;
-      margin: 4px 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 6px;
+      padding: 2px 4px;
+      vertical-align: middle;
+    }
+
+    .padrino-col-header {
+      font-weight: 600;
+      color: var(--salvia-dark);
+      border-bottom: 1px dashed rgba(107, 127, 108, 0.2);
+      padding-bottom: 4px;
+    }
+
+    .padrino-col-footer {
+      padding-top: 4px;
     }
 
     .events-container {
@@ -316,7 +331,7 @@
     .event-icon {
       width: 32px;
       height: 32px;
-      background: #f0f3f0;
+      background: #f0f4f1;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -333,7 +348,7 @@
       font-size: 8.5px;
       text-transform: uppercase;
       letter-spacing: 1px;
-      color: var(--dorado);
+      color: var(--salvia);
       font-weight: 700;
     }
 
@@ -361,27 +376,13 @@
       border-bottom: 1px solid var(--salvia);
     }
 
-    .btn-whatsapp {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      background: var(--salvia-dark);
-      color: white;
-      text-decoration: none;
-      padding: 9px 20px;
-      border-radius: 18px;
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      box-shadow: 0 4px 10px rgba(68, 84, 69, 0.25);
-      margin-top: 8px;
-      transition: all 0.3s ease;
-    }
-
-    .btn-whatsapp:hover {
-      background: var(--salvia);
+    /* NOTA DISCRETA SIN ENLACE */
+    .rsvp-text-only {
+      margin-top: 14px;
+      font-size: 10.5px;
+      color: var(--salvia-dark);
+      font-style: italic;
+      letter-spacing: 0.5px;
     }
   </style>
 </head>
@@ -391,40 +392,39 @@
     
     <!-- TARJETA INTERIOR -->
     <div class="card">
-      <div class="card-border"></div>
+      
+      <!-- MARCO VERDE SALVIA CON QUERUBINES Y HORTENSIAS -->
+      <svg class="botanical-frame" viewBox="0 0 375 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g stroke="#6b7f6c" stroke-width="1.1">
+          <path d="M-10 40 C30 10 70 30 120 10" />
+          <circle cx="25" cy="22" r="3.5" /> <circle cx="32" cy="16" r="4" /> <circle cx="40" cy="25" r="3" />
+          <circle cx="75" cy="20" r="7" />
+          <path d="M68 22 C60 15 54 26 64 30" />
+          <path d="M72 27 C75 35 85 35 82 27" />
+          <path d="M95 18 C90 12 100 8 105 18" />
+
+          <path d="M385 40 C345 10 305 30 255 10" />
+          <circle cx="350" cy="22" r="4" /> <circle cx="340" cy="16" r="3.5" /> <circle cx="330" cy="25" r="4" />
+          <circle cx="320" cy="18" r="3" /> <circle cx="310" cy="26" r="4" />
+
+          <path d="M-10 480 C30 510 70 490 120 510" />
+          <circle cx="35" cy="495" r="4" /> <circle cx="50" cy="502" r="3.5" />
+          <circle cx="80" cy="495" r="6" />
+          <path d="M74 497 C68 490 62 498 72 502" />
+
+          <path d="M385 480 C345 510 305 490 255 510" />
+          <circle cx="345" cy="495" r="4" /> <circle cx="330" cy="502" r="3.5" /> <circle cx="315" cy="492" r="4" />
+          <path d="M280 498 C275 492 285 488 290 498" />
+        </g>
+      </svg>
 
       <div class="content">
 
-        <!-- QUERUBÍN BEBÉ CON FLOR DE HORTENSIA (LINE ART SALVIA) -->
-        <div class="cherub-art">
-          <svg viewBox="0 0 160 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- Rama de Hortensia izquierda -->
-            <path d="M10 50 C25 35 40 45 55 35" stroke="#6b7f6c" stroke-width="1.2" stroke-linecap="round"/>
-            <circle cx="20" cy="40" r="3" stroke="#6b7f6c" stroke-width="1"/>
-            <circle cx="26" cy="36" r="3.5" stroke="#6b7f6c" stroke-width="1"/>
-            <circle cx="22" cy="46" r="3" stroke="#6b7f6c" stroke-width="1"/>
-            <circle cx="32" cy="40" r="4" stroke="#6b7f6c" stroke-width="1"/>
-
-            <!-- Querubín Bebé Central -->
-            <!-- Cabeza y Rizo -->
-            <circle cx="80" cy="30" r="10" stroke="#6b7f6c" stroke-width="1.3"/>
-            <path d="M78 22 C80 20 84 21 83 24" stroke="#6b7f6c" stroke-width="1.2"/>
-            <!-- Alitas -->
-            <path d="M72 32 C60 22 52 35 65 42 C68 38 72 35 73 34" stroke="#6b7f6c" stroke-width="1.2" stroke-linecap="round"/>
-            <path d="M88 32 C100 22 108 35 95 42 C92 38 88 35 87 34" stroke="#6b7f6c" stroke-width="1.2" stroke-linecap="round"/>
-            <!-- Cuerpo y brazos sosteniendo guirnalda -->
-            <path d="M74 38 C72 52 88 52 86 38" stroke="#6b7f6c" stroke-width="1.3"/>
-            <path d="M70 42 C76 46 84 46 90 42" stroke="#6b7f6c" stroke-width="1.2"/>
-
-            <!-- Libélula elegante -->
-            <path d="M125 25 L145 25" stroke="#6b7f6c" stroke-width="1"/>
-            <path d="M135 25 C130 18 140 18 135 25 C130 32 140 32 135 25" stroke="#6b7f6c" stroke-width="0.9"/>
-
-            <!-- Rama de Hortensia derecha -->
-            <path d="M105 35 C120 45 135 35 150 50" stroke="#6b7f6c" stroke-width="1.2" stroke-linecap="round"/>
-            <circle cx="138" cy="40" r="4" stroke="#6b7f6c" stroke-width="1"/>
-            <circle cx="144" cy="44" r="3" stroke="#6b7f6c" stroke-width="1"/>
-            <circle cx="132" cy="44" r="3" stroke="#6b7f6c" stroke-width="1"/>
+        <!-- Cruz Religiosa Delicada -->
+        <div class="cross-icon">
+          <svg width="20" height="24" viewBox="0 0 24 28" fill="none" stroke="#6b7f6c" stroke-width="1.5">
+            <line x1="12" y1="2" x2="12" y2="26" />
+            <line x1="5" y1="9" x2="19" y2="9" />
           </svg>
         </div>
         
@@ -436,13 +436,7 @@
         <div class="header-subtitle">Mi Bautizo</div>
         <div class="main-title">GABRIEL</div>
 
-        <div class="divider-botanical">
-          <div class="divider-line"></div>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M12 2C12 2 14 7 19 9C14 11 12 16 12 16C12 16 10 11 5 9C10 7 12 2 12 2Z"/>
-          </svg>
-          <div class="divider-line"></div>
-        </div>
+        <div class="divider-line"></div>
 
         <div class="parents-section">
           <div class="section-label">Con la bendición de mis padres</div>
@@ -451,18 +445,24 @@
           </div>
         </div>
 
+        <!-- PADRINOS EN 2 RENGLONES (MADRINAS ARRIBA / PADRINOS ABAJO ALINEADOS) -->
         <div class="padrinos-container">
           <div class="section-label">Mis Padrinos</div>
-          <div class="padrinos-row">Alinne Valdez &nbsp;&bull;&nbsp; Luis Carlos Campa</div>
-          <div class="padrinos-row">Camila Morales &nbsp;&bull;&nbsp; Eduardo Perez</div>
-          <div class="padrinos-row">Abigail Cota &nbsp;&bull;&nbsp; Gabriel Juarez</div>
+          <div class="padrinos-table">
+            <div class="padrinos-row-header">
+              <div class="padrino-col padrino-col-header">Alinne Valdez</div>
+              <div class="padrino-col padrino-col-header">Camila Morales</div>
+              <div class="padrino-col padrino-col-header">Abigail Cota</div>
+            </div>
+            <div class="padrinos-row-footer">
+              <div class="padrino-col padrino-col-footer">Luis Carlos Campa</div>
+              <div class="padrino-col padrino-col-footer">Eduardo Perez</div>
+              <div class="padrino-col padrino-col-footer">Gabriel Juarez</div>
+            </div>
+          </div>
         </div>
 
-        <div class="divider-botanical">
-          <div class="divider-line"></div>
-          <span style="font-size: 11px;">🍃</span>
-          <div class="divider-line"></div>
-        </div>
+        <div class="divider-line"></div>
 
         <div style="font-family: 'Cinzel', serif; font-size: 12px; font-weight: 700; color: var(--salvia-dark); margin-bottom: 6px;">
           VIERNES, 12 DE DICIEMBRE
@@ -502,22 +502,24 @@
 
         </div>
 
-        <a href="https://api.whatsapp.com/send?phone=&text=¡Hola!%20Confirmo%20mi%20asistencia%20al%20Bautizo%20de%20Gabriel." target="_blank" class="btn-whatsapp">
-          <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946 0-6.556 5.332-11.888 11.888-11.888 3.18 0 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99 0-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
-          </svg>
-          Confirmar Asistencia
-        </a>
+        <!-- NOTA SUTIL FINAL -->
+        <div class="rsvp-text-only">
+          ~ No olvides confirmar tu asistencia ~
+        </div>
 
       </div>
     </div>
 
-    <!-- SOBRE -->
+    <!-- SOBRE CON SELLO DE PALOMA -->
     <div class="envelope" id="envelopeBtn">
       <div class="envelope-flap"></div>
       <div class="envelope-pocket"></div>
       <div class="wax-seal">
-        <span>G</span>
+        <!-- PALOMA DE LA PAZ -->
+        <svg viewBox="0 0 24 24">
+          <path d="M12 4C10 7 7 8 4 8C4 12 7 15 11 15C12.5 15 14 14.5 15 13.5 L19 17.5 L20 16.5 L17 12.5 C18.5 11 19 9 19 7 C16 7 14 5 12 4Z" />
+          <path d="M11 15C10 18 8 20 5 21" />
+        </svg>
       </div>
       <div class="tap-hint">Toca para abrir</div>
     </div>
