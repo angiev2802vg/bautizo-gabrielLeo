@@ -36,18 +36,18 @@
 
     .invitation-wrapper {
       width: 100%;
-      max-width: 420px;
+      max-width: 440px;
       position: relative;
       display: flex;
       flex-direction: column;
       align-items: center;
-      min-height: 640px;
+      min-height: 660px;
     }
 
     /* SOBRE ELEGANTE */
     .envelope {
       width: 100%;
-      max-width: 390px;
+      max-width: 400px;
       height: 270px;
       background: #ded6c5;
       position: absolute;
@@ -90,33 +90,30 @@
       border-radius: 0 0 12px 12px;
     }
 
-    /* SELLO DE CERA CON PALOMA */
+    /* SELLO DE CERA CON TU PROPIA FOTO DE PALOMA */
     .wax-seal {
       position: absolute;
       top: 125px;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 60px;
-      height: 60px;
-      background: radial-gradient(circle, #6b7f6c 0%, #3b4a3c 100%);
+      width: 62px;
+      height: 62px;
       border-radius: 50%;
       z-index: 7;
       display: flex;
       justify-content: center;
       align-items: center;
       box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      border: 1px solid rgba(255, 255, 255, 0.4);
+      overflow: hidden;
+      background: #ffffff;
+      border: 2px solid rgba(107, 127, 108, 0.4);
       transition: transform 0.4s ease, opacity 0.4s ease;
     }
 
-    .wax-seal svg {
-      width: 32px;
-      height: 32px;
-      fill: none;
-      stroke: #faf8f5;
-      stroke-width: 1.5;
-      stroke-linecap: round;
-      stroke-linejoin: round;
+    .wax-seal img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .tap-hint {
@@ -139,14 +136,18 @@
       50% { opacity: 1; transform: translateX(-50%) scale(1.05); }
     }
 
-    /* TARJETA INTERIOR CON MARCO VERDE DE QUERUBINES Y HORTENSIAS */
+    /* TARJETA CON LA IMAGEN DE FONDO */
     .card {
-      width: 94%;
-      max-width: 375px;
+      width: 96%;
+      max-width: 390px;
       background-color: var(--marfil);
-      border-radius: 18px;
-      padding: 30px 20px 26px;
-      box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+      background-image: url('fondo.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      border-radius: 16px;
+      padding: 16px;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.15);
       position: absolute;
       bottom: 20px;
       left: 50%;
@@ -160,16 +161,13 @@
       overflow: hidden;
     }
 
-    /* MARCO BOTÁNICO DE QUERUBINES Y HORTENSIAS EN VERDE SALVIA */
-    .botanical-frame {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 1;
-      opacity: 0.85;
+    /* FIGURA INTERIOR EN TONO SALVIA / MARFIL PARA EL TEXTO */
+    .card-inner {
+      background: rgba(253, 251, 247, 0.93);
+      border-radius: 12px;
+      padding: 22px 14px;
+      border: 1.5px solid rgba(107, 127, 108, 0.35);
+      box-shadow: inset 0 0 12px rgba(255,255,255,0.9);
     }
 
     /* ANIMACIÓN AL ABRIR */
@@ -209,7 +207,7 @@
       font-style: italic;
       font-size: 10.5px;
       color: var(--salvia-dark);
-      max-width: 88%;
+      max-width: 90%;
       margin: 0 auto 10px;
       line-height: 1.45;
     }
@@ -269,13 +267,13 @@
       font-weight: 600;
     }
 
-    /* ESTRUCTURA HORIZONTAL DE PADRINOS EN 2 RENGLONES ALINEADOS */
+    /* ESTRUCTURA DE PADRINOS HORIZONTALES */
     .padrinos-container {
-      background: rgba(107, 127, 108, 0.05);
+      background: rgba(107, 127, 108, 0.08);
       border-radius: 8px;
-      padding: 10px 8px;
+      padding: 10px 6px;
       margin: 10px 0;
-      border: 1px solid rgba(107, 127, 108, 0.15);
+      border: 1px solid rgba(107, 127, 108, 0.2);
     }
 
     .padrinos-table {
@@ -291,17 +289,17 @@
     .padrino-col {
       display: table-cell;
       width: 33.33%;
-      font-size: 10px;
+      font-size: 9.8px;
       color: var(--salvia-dark);
       font-weight: 500;
-      padding: 2px 4px;
+      padding: 2px 3px;
       vertical-align: middle;
     }
 
     .padrino-col-header {
       font-weight: 600;
       color: var(--salvia-dark);
-      border-bottom: 1px dashed rgba(107, 127, 108, 0.2);
+      border-bottom: 1px dashed rgba(107, 127, 108, 0.25);
       padding-bottom: 4px;
     }
 
@@ -328,16 +326,12 @@
       gap: 10px;
     }
 
-    .event-icon {
+    /* CONTENEDOR DE TU ICONO PERSONALIZADO */
+    .event-icon-img {
       width: 32px;
       height: 32px;
-      background: #f0f4f1;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      object-fit: contain;
       flex-shrink: 0;
-      color: var(--salvia-dark);
     }
 
     .event-details {
@@ -376,7 +370,6 @@
       border-bottom: 1px solid var(--salvia);
     }
 
-    /* NOTA DISCRETA SIN ENLACE */
     .rsvp-text-only {
       margin-top: 14px;
       font-size: 10.5px;
@@ -392,134 +385,98 @@
     
     <!-- TARJETA INTERIOR -->
     <div class="card">
-      
-      <!-- MARCO VERDE SALVIA CON QUERUBINES Y HORTENSIAS -->
-      <svg class="botanical-frame" viewBox="0 0 375 520" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g stroke="#6b7f6c" stroke-width="1.1">
-          <path d="M-10 40 C30 10 70 30 120 10" />
-          <circle cx="25" cy="22" r="3.5" /> <circle cx="32" cy="16" r="4" /> <circle cx="40" cy="25" r="3" />
-          <circle cx="75" cy="20" r="7" />
-          <path d="M68 22 C60 15 54 26 64 30" />
-          <path d="M72 27 C75 35 85 35 82 27" />
-          <path d="M95 18 C90 12 100 8 105 18" />
+      <div class="card-inner">
 
-          <path d="M385 40 C345 10 305 30 255 10" />
-          <circle cx="350" cy="22" r="4" /> <circle cx="340" cy="16" r="3.5" /> <circle cx="330" cy="25" r="4" />
-          <circle cx="320" cy="18" r="3" /> <circle cx="310" cy="26" r="4" />
+        <div class="content">
 
-          <path d="M-10 480 C30 510 70 490 120 510" />
-          <circle cx="35" cy="495" r="4" /> <circle cx="50" cy="502" r="3.5" />
-          <circle cx="80" cy="495" r="6" />
-          <path d="M74 497 C68 490 62 498 72 502" />
-
-          <path d="M385 480 C345 510 305 490 255 510" />
-          <circle cx="345" cy="495" r="4" /> <circle cx="330" cy="502" r="3.5" /> <circle cx="315" cy="492" r="4" />
-          <path d="M280 498 C275 492 285 488 290 498" />
-        </g>
-      </svg>
-
-      <div class="content">
-
-        <!-- Cruz Religiosa Delicada -->
-        <div class="cross-icon">
-          <svg width="20" height="24" viewBox="0 0 24 28" fill="none" stroke="#6b7f6c" stroke-width="1.5">
-            <line x1="12" y1="2" x2="12" y2="26" />
-            <line x1="5" y1="9" x2="19" y2="9" />
-          </svg>
-        </div>
-        
-        <div class="verse">
-          "Pues él dará orden a sus ángeles acerca de ti, para que te guarden en todos tus caminos."
-          <span class="verse-ref">SALMOS 91:11</span>
-        </div>
-
-        <div class="header-subtitle">Mi Bautizo</div>
-        <div class="main-title">GABRIEL</div>
-
-        <div class="divider-line"></div>
-
-        <div class="parents-section">
-          <div class="section-label">Con la bendición de mis padres</div>
-          <div class="names-list">
-            Angélica Valdez &amp; José Roberto Campa
+          <!-- Cruz Religiosa -->
+          <div class="cross-icon">
+            <svg width="20" height="24" viewBox="0 0 24 28" fill="none" stroke="#6b7f6c" stroke-width="1.5">
+              <line x1="12" y1="2" x2="12" y2="26" />
+              <line x1="5" y1="9" x2="19" y2="9" />
+            </svg>
           </div>
-        </div>
-
-        <!-- PADRINOS EN 2 RENGLONES (MADRINAS ARRIBA / PADRINOS ABAJO ALINEADOS) -->
-        <div class="padrinos-container">
-          <div class="section-label">Mis Padrinos</div>
-          <div class="padrinos-table">
-            <div class="padrinos-row-header">
-              <div class="padrino-col padrino-col-header">Alinne Valdez</div>
-              <div class="padrino-col padrino-col-header">Camila Morales</div>
-              <div class="padrino-col padrino-col-header">Abigail Cota</div>
-            </div>
-            <div class="padrinos-row-footer">
-              <div class="padrino-col padrino-col-footer">Luis Carlos Campa</div>
-              <div class="padrino-col padrino-col-footer">Eduardo Perez</div>
-              <div class="padrino-col padrino-col-footer">Gabriel Juarez</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="divider-line"></div>
-
-        <div style="font-family: 'Cinzel', serif; font-size: 12px; font-weight: 700; color: var(--salvia-dark); margin-bottom: 6px;">
-          VIERNES, 12 DE DICIEMBRE
-        </div>
-
-        <div class="events-container">
           
-          <div class="event-card">
-            <div class="event-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M12 2L3 9v12h18V9l-9-7z"/>
-                <path d="M9 22V12h6v10"/>
-              </svg>
-            </div>
-            <div class="event-details">
-              <div class="event-type">Ceremonia Religiosa</div>
-              <div class="event-title">Templo San Martín de Porres</div>
-              <div class="event-time">1:00 PM</div>
-              <a href="https://maps.app.goo.gl/TNCnb8vR3YZ6hCCy9" target="_blank" class="btn-map">Ver Ubicación en Maps &rarr;</a>
+          <div class="verse">
+            "Pues él dará orden a sus ángeles acerca de ti, para que te guarden en todos tus caminos."
+            <span class="verse-ref">SALMOS 91:11</span>
+          </div>
+
+          <div class="header-subtitle">Mi Bautizo</div>
+          <div class="main-title">GABRIEL</div>
+
+          <div class="divider-line"></div>
+
+          <div class="parents-section">
+            <div class="section-label">Con la bendición de mis padres</div>
+            <div class="names-list">
+              Angélica Valdez &amp; José Roberto Campa
             </div>
           </div>
 
-          <div class="event-card">
-            <div class="event-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M12 3v18"/>
-                <path d="M18 8a3 3 0 0 0-3-3H9a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h6a3 3 0 0 0 3-3V8z"/>
-              </svg>
-            </div>
-            <div class="event-details">
-              <div class="event-type">Recepción &amp; Cena</div>
-              <div class="event-title">Eventos La Carreta</div>
-              <div class="event-time">8:00 PM</div>
-              <a href="https://maps.app.goo.gl/pXc7bXq41YbViA4V8" target="_blank" class="btn-map">Ver Ubicación en Maps &rarr;</a>
+          <!-- PADRINOS EN 2 RENGLONES -->
+          <div class="padrinos-container">
+            <div class="section-label">Mis Padrinos</div>
+            <div class="padrinos-table">
+              <div class="padrinos-row-header">
+                <div class="padrino-col padrino-col-header">Alinne Valdez</div>
+                <div class="padrino-col padrino-col-header">Camila Morales</div>
+                <div class="padrino-col padrino-col-header">Abigail Cota</div>
+              </div>
+              <div class="padrinos-row-footer">
+                <div class="padrino-col padrino-col-footer">Luis Carlos Campa</div>
+                <div class="padrino-col padrino-col-footer">Eduardo Perez</div>
+                <div class="padrino-col padrino-col-footer">Gabriel Juarez</div>
+              </div>
             </div>
           </div>
 
-        </div>
+          <div class="divider-line"></div>
 
-        <!-- NOTA SUTIL FINAL -->
-        <div class="rsvp-text-only">
-          ~ No olvides confirmar tu asistencia ~
-        </div>
+          <div style="font-family: 'Cinzel', serif; font-size: 12px; font-weight: 700; color: var(--salvia-dark); margin-bottom: 6px;">
+            VIERNES, 12 DE DICIEMBRE
+          </div>
 
+          <div class="events-container">
+            
+            <div class="event-card">
+              <!-- ICONO FOTO IGLESIA -->
+              <img src="iglesia.png" alt="Iglesia" class="event-icon-img" onerror="this.style.display='none'" />
+              <div class="event-details">
+                <div class="event-type">Ceremonia Religiosa</div>
+                <div class="event-title">Templo San Martín de Porres</div>
+                <div class="event-time">1:00 PM</div>
+                <a href="https://maps.app.goo.gl/TNCnb8vR3YZ6hCCy9" target="_blank" class="btn-map">Ver Ubicación en Maps &rarr;</a>
+              </div>
+            </div>
+
+            <div class="event-card">
+              <!-- ICONO FOTO RECEPCIÓN -->
+              <img src="recepcion.png" alt="Recepción" class="event-icon-img" onerror="this.style.display='none'" />
+              <div class="event-details">
+                <div class="event-type">Recepción &amp; Cena</div>
+                <div class="event-title">Eventos La Carreta</div>
+                <div class="event-time">8:00 PM</div>
+                <a href="https://maps.app.goo.gl/pXc7bXq41YbViA4V8" target="_blank" class="btn-map">Ver Ubicación en Maps &rarr;</a>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="rsvp-text-only">
+            ~ No olvides confirmar tu asistencia ~
+          </div>
+
+        </div>
       </div>
     </div>
 
-    <!-- SOBRE CON SELLO DE PALOMA -->
+    <!-- SOBRE CON TU FOTO DE PALOMA -->
     <div class="envelope" id="envelopeBtn">
       <div class="envelope-flap"></div>
       <div class="envelope-pocket"></div>
       <div class="wax-seal">
-        <!-- PALOMA DE LA PAZ -->
-        <svg viewBox="0 0 24 24">
-          <path d="M12 4C10 7 7 8 4 8C4 12 7 15 11 15C12.5 15 14 14.5 15 13.5 L19 17.5 L20 16.5 L17 12.5 C18.5 11 19 9 19 7 C16 7 14 5 12 4Z" />
-          <path d="M11 15C10 18 8 20 5 21" />
-        </svg>
+        <img src="sello.png" alt="Paloma" onerror="this.style.display='none'" />
       </div>
       <div class="tap-hint">Toca para abrir</div>
     </div>
