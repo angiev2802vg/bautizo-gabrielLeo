@@ -1,495 +1,273 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bautizo de Gabriel</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Alex+Brush&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --salvia: #6b7f6c;
-      --salvia-dark: #3b4a3c;
-      --salvia-soft: #a3b3a4;
-      --marfil: #faf8f5;
-      --texto: #2a332b;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Bautizo - Gabriel Leonardo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-green: #556B2F;
+            --dark-green: #3B4D20;
+            --gold: #C5A059;
+            --gold-light: #E6D5B8;
+            --bg-overlay: rgba(255, 255, 255, 0.93);
+        }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    body {
-      background-color: #f0ebe4;
-      font-family: 'Montserrat', sans-serif;
-      color: var(--texto);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      padding: 20px 15px;
-      overflow-x: hidden;
-    }
+        body {
+            background-color: #eaf0e6;
+            /* Fondo ornamental simulando el patrón clásico tipo Toile de Jouy en tonos verdosos */
+            background-image: radial-gradient(var(--primary-green) 0.5px, transparent 0.5px), radial-gradient(var(--dark-green) 0.5px, #eaf0e6 0.5px);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+            font-family: 'Cormorant Garamond', serif;
+            color: #4a4a4a;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
 
-    .invitation-wrapper {
-      width: 100%;
-      max-width: 440px;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 660px;
-    }
+        .invitation-card {
+            background: var(--bg-overlay);
+            width: 100%;
+            max-width: 500px;
+            border-radius: 4px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+            border: 2px solid var(--gold-light);
+            position: relative;
+            overflow: hidden;
+            padding: 40px 25px;
+            text-align: center;
+        }
 
-    /* SOBRE ELEGANTE */
-    .envelope {
-      width: 100%;
-      max-width: 400px;
-      height: 270px;
-      background: #ded6c5;
-      position: absolute;
-      bottom: 0;
-      border-radius: 0 0 12px 12px;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-      cursor: pointer;
-      z-index: 5;
-      transition: transform 0.4s ease;
-    }
+        /* Arco superior decorativo */
+        .card-inner {
+            border: 1px solid var(--gold);
+            border-top-left-radius: 240px;
+            border-top-right-radius: 240px;
+            padding: 30px 15px 20px 15px;
+            position: relative;
+        }
 
-    .envelope:hover {
-      transform: translateY(-3px);
-    }
+        .dove-icon {
+            width: 70px;
+            margin-bottom: 10px;
+        }
 
-    .envelope-flap {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 140px;
-      background: #d1c6af;
-      clip-path: polygon(0 0, 50% 100%, 100% 0);
-      transform-origin: top;
-      transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-      z-index: 6;
-      filter: drop-shadow(0 3px 3px rgba(0,0,0,0.08));
-    }
+        h1.title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            font-size: 1.1rem;
+            letter-spacing: 4px;
+            color: var(--primary-green);
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
 
-    .envelope-pocket {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 270px;
-      background: linear-gradient(135deg, #e8dfcc 0%, #d1c6af 100%);
-      clip-path: polygon(0 100%, 0 40%, 50% 85%, 100% 40%, 100% 100%);
-      z-index: 6;
-      pointer-events: none;
-      border-radius: 0 0 12px 12px;
-    }
+        h2.name {
+            font-family: 'Alex Brush', cursive;
+            font-size: 3.5rem;
+            color: var(--dark-green);
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
 
-    /* SELLO DE CERA CON TU IMAGEN (sello.png) */
-    .wax-seal {
-      position: absolute;
-      top: 125px;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 62px;
-      height: 62px;
-      border-radius: 50%;
-      z-index: 7;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      overflow: hidden;
-      background: #ffffff;
-      border: 2px solid rgba(107, 127, 108, 0.4);
-      transition: transform 0.4s ease, opacity 0.4s ease;
-    }
+        .bible-verse {
+            font-style: italic;
+            font-size: 0.95rem;
+            color: #666;
+            max-width: 340px;
+            margin: 0 auto 25px auto;
+            line-height: 1.4;
+        }
 
-    .wax-seal img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+        .bible-verse span {
+            display: block;
+            font-size: 0.85rem;
+            margin-top: 5px;
+            color: var(--gold);
+            letter-spacing: 1px;
+        }
 
-    .tap-hint {
-      position: absolute;
-      bottom: -32px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 11px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--salvia-dark);
-      font-weight: 600;
-      animation: pulse 1.5s infinite;
-      white-space: nowrap;
-      z-index: 8;
-    }
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 3px;
+            color: var(--primary-green);
+            text-transform: uppercase;
+            margin: 20px 0 10px 0;
+            position: relative;
+        }
 
-    @keyframes pulse {
-      0%, 100% { opacity: 0.6; transform: translateX(-50%) scale(1); }
-      50% { opacity: 1; transform: translateX(-50%) scale(1.05); }
-    }
+        .parents-names {
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
 
-    /* TARJETA CON LA IMAGEN DE FONDO (fondo.png) */
-    .card {
-      width: 96%;
-      max-width: 390px;
-      background-color: var(--marfil);
-      background-image: url('fondo.png');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      border-radius: 16px;
-      padding: 16px;
-      box-shadow: 0 12px 35px rgba(0,0,0,0.15);
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%) translateY(140px) scale(0.92);
-      z-index: 2;
-      opacity: 0;
-      transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.22);
-      text-align: center;
-      border: 1px solid #dcd4c5;
-      pointer-events: none;
-      overflow: hidden;
-    }
+        .parents-names .amp {
+            color: var(--gold);
+            font-size: 1.4rem;
+            display: block;
+            margin: 2px 0;
+        }
 
-    /* FIGURA INTERIOR EN TONO SALVIA / MARFIL PARA EL TEXTO */
-    .card-inner {
-      background: rgba(253, 251, 247, 0.93);
-      border-radius: 12px;
-      padding: 22px 14px;
-      border: 1.5px solid rgba(107, 127, 108, 0.35);
-      box-shadow: inset 0 0 12px rgba(255,255,255,0.9);
-    }
+        /* Padrinos en diseño horizontal por parejas */
+        .godparents-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 30px;
+            padding: 0 5px;
+        }
 
-    /* ANIMACIÓN AL ABRIR */
-    .invitation-wrapper.open .envelope-flap {
-      transform: rotateX(180deg);
-      z-index: 1;
-    }
+        .godparents-column {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
 
-    .invitation-wrapper.open .wax-seal {
-      opacity: 0;
-      transform: translate(-50%, -50%) scale(0);
-      pointer-events: none;
-    }
+        .godparent-item {
+            font-size: 0.8rem;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #555;
+            background: rgba(197, 160, 89, 0.08);
+            padding: 6px 4px;
+            border-radius: 3px;
+        }
 
-    .invitation-wrapper.open .tap-hint {
-      display: none;
-    }
+        .divider {
+            width: 60%;
+            height: 1px;
+            background-color: var(--gold);
+            margin: 20px auto;
+        }
 
-    .invitation-wrapper.open .card {
-      transform: translateX(-50%) translateY(-10px) scale(1);
-      opacity: 1;
-      z-index: 10;
-      pointer-events: auto;
-    }
+        /* Eventos (Iglesia y Recepción) */
+        .event-block {
+            margin-bottom: 25px;
+        }
 
-    .content {
-      position: relative;
-      z-index: 2;
-    }
+        .event-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--dark-green);
+            margin-bottom: 3px;
+        }
 
-    .cross-icon {
-      margin: 0 auto 6px;
-      color: var(--salvia);
-    }
+        .event-time {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
 
-    .verse {
-      font-style: italic;
-      font-size: 10.5px;
-      color: var(--salvia-dark);
-      max-width: 90%;
-      margin: 0 auto 10px;
-      line-height: 1.45;
-    }
+        .map-btn {
+            display: inline-block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #fff;
+            background-color: var(--primary-green);
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            transition: background 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
 
-    .verse-ref {
-      font-style: normal;
-      font-weight: 600;
-      font-size: 9px;
-      display: block;
-      margin-top: 3px;
-      color: var(--salvia);
-      letter-spacing: 1px;
-    }
+        .map-btn:hover {
+            background-color: var(--dark-green);
+        }
 
-    .header-subtitle {
-      font-family: 'Alex Brush', cursive;
-      font-size: 34px;
-      color: var(--salvia);
-      margin-bottom: -6px;
-    }
-
-    .main-title {
-      font-family: 'Cinzel', serif;
-      font-size: 29px;
-      font-weight: 700;
-      letter-spacing: 4px;
-      color: var(--salvia-dark);
-      margin-bottom: 10px;
-      text-transform: uppercase;
-    }
-
-    .divider-line {
-      height: 1px;
-      width: 50px;
-      background: var(--salvia-soft);
-      margin: 10px auto;
-    }
-
-    .section-label {
-      font-size: 8.5px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: var(--salvia);
-      margin-bottom: 3px;
-      font-weight: 600;
-    }
-
-    .parents-section {
-      margin-bottom: 12px;
-    }
-
-    .names-list {
-      font-family: 'Cinzel', serif;
-      font-size: 11.5px;
-      color: var(--texto);
-      line-height: 1.4;
-      font-weight: 600;
-    }
-
-    /* ESTRUCTURA DE PADRINOS HORIZONTALES */
-    .padrinos-container {
-      background: rgba(107, 127, 108, 0.08);
-      border-radius: 8px;
-      padding: 10px 6px;
-      margin: 10px 0;
-      border: 1px solid rgba(107, 127, 108, 0.2);
-    }
-
-    .padrinos-table {
-      display: table;
-      width: 100%;
-      margin-top: 4px;
-    }
-
-    .padrinos-row-header, .padrinos-row-footer {
-      display: table-row;
-    }
-
-    .padrino-col {
-      display: table-cell;
-      width: 33.33%;
-      font-size: 9.8px;
-      color: var(--salvia-dark);
-      font-weight: 500;
-      padding: 2px 3px;
-      vertical-align: middle;
-    }
-
-    .padrino-col-header {
-      font-weight: 600;
-      color: var(--salvia-dark);
-      border-bottom: 1px dashed rgba(107, 127, 108, 0.25);
-      padding-bottom: 4px;
-    }
-
-    .padrino-col-footer {
-      padding-top: 4px;
-    }
-
-    .events-container {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      margin: 12px 0;
-    }
-
-    .event-card {
-      background: white;
-      border-radius: 8px;
-      padding: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
-      border-left: 3px solid var(--salvia);
-      text-align: left;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .event-icon-img {
-      width: 32px;
-      height: 32px;
-      object-fit: contain;
-      flex-shrink: 0;
-    }
-
-    .event-details {
-      flex-grow: 1;
-    }
-
-    .event-type {
-      font-size: 8.5px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--salvia);
-      font-weight: 700;
-    }
-
-    .event-title {
-      font-family: 'Cinzel', serif;
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--salvia-dark);
-      margin: 1px 0;
-    }
-
-    .event-time {
-      font-size: 9.5px;
-      color: var(--texto);
-      font-weight: 600;
-    }
-
-    .btn-map {
-      display: inline-block;
-      margin-top: 3px;
-      font-size: 8.5px;
-      color: var(--salvia-dark);
-      text-decoration: none;
-      font-weight: 600;
-      border-bottom: 1px solid var(--salvia);
-    }
-
-    .rsvp-text-only {
-      margin-top: 14px;
-      font-size: 10.5px;
-      color: var(--salvia-dark);
-      font-style: italic;
-      letter-spacing: 0.5px;
-    }
-  </style>
+        .footer-note {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            color: var(--gold);
+            margin-top: 25px;
+            text-transform: uppercase;
+        }
+    </style>
 </head>
 <body>
 
-  <div class="invitation-wrapper" id="invitationWrapper">
-    
-    <!-- TARJETA INTERIOR -->
-    <div class="card">
-      <div class="card-inner">
-
-        <div class="content">
-
-          <!-- Cruz Religiosa -->
-          <div class="cross-icon">
-            <svg width="20" height="24" viewBox="0 0 24 28" fill="none" stroke="#6b7f6c" stroke-width="1.5">
-              <line x1="12" y1="2" x2="12" y2="26" />
-              <line x1="5" y1="9" x2="19" y2="9" />
-            </svg>
-          </div>
-          
-          <div class="verse">
-            "Pues él dará orden a sus ángeles acerca de ti, para que te guarden en todos tus caminos."
-            <span class="verse-ref">SALMOS 91:11</span>
-          </div>
-
-          <div class="header-subtitle">Mi Bautizo</div>
-          <div class="main-title">GABRIEL</div>
-
-          <div class="divider-line"></div>
-
-          <div class="parents-section">
-            <div class="section-label">Con la bendición de mis padres</div>
-            <div class="names-list">
-              Angélica Valdez &amp; José Roberto Campa
-            </div>
-          </div>
-
-          <!-- PADRINOS EN 2 RENGLONES -->
-          <div class="padrinos-container">
-            <div class="section-label">Mis Padrinos</div>
-            <div class="padrinos-table">
-              <div class="padrinos-row-header">
-                <div class="padrino-col padrino-col-header">Alinne Valdez</div>
-                <div class="padrino-col padrino-col-header">Camila Morales</div>
-                <div class="padrino-col padrino-col-header">Abigail Cota</div>
-              </div>
-              <div class="padrinos-row-footer">
-                <div class="padrino-col padrino-col-footer">Luis Carlos Campa</div>
-                <div class="padrino-col padrino-col-footer">Eduardo Perez</div>
-                <div class="padrino-col padrino-col-footer">Gabriel Juarez</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="divider-line"></div>
-
-          <div style="font-family: 'Cinzel', serif; font-size: 12px; font-weight: 700; color: var(--salvia-dark); margin-bottom: 6px;">
-            VIERNES, 12 DE DICIEMBRE
-          </div>
-
-          <div class="events-container">
+    <div class="invitation-card">
+        <div class="card-inner">
             
-            <div class="event-card">
-              <!-- ICONO IGLESIA (icono-iglesia.png) -->
-              <img src="icono-iglesia.png" alt="Iglesia" class="event-icon-img" />
-              <div class="event-details">
-                <div class="event-type">Ceremonia Religiosa</div>
+            <!-- Encabezado -->
+            <h1 class="title">Mi Bautizo</h1>
+            <h2 class="name">Gabriel Leonardo</h2>
+
+            <!-- Versículo -->
+            <div class="bible-verse">
+                «Porque a sus ángeles mandará acerca de ti, que te guarden en todos tus caminos».
+                <span>— Salmo 91,11</span>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- Padres -->
+            <div class="section-title">Con la bendición de mis padres</div>
+            <div class="parents-names">
+                Angélica Valdez
+                <span class="amp">&</span>
+                José Roberto Campa
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- Padrinos en parejas horizontales (Madrinas arriba, Padrinos abajo) -->
+            <div class="section-title">Mis Padrinos</div>
+            <div class="godparents-grid">
+                <div class="godparents-column">
+                    <span class="godparent-item">Alinne Valdez</span>
+                    <span class="godparent-item">Luis Carlos Campa</span>
+                </div>
+                <div class="godparents-column">
+                    <span class="godparent-item">Abigail Cota</span>
+                    <span class="godparent-item">Gabriel Juárez</span>
+                </div>
+                <div class="godparents-column">
+                    <span class="godparent-item">Camila Morales</span>
+                    <span class="godparent-item">Eduardo Pérez</span>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- Iglesia -->
+            <div class="event-block">
                 <div class="event-title">Templo San Martín de Porres</div>
-                <div class="event-time">1:00 PM</div>
-                <a href="https://maps.app.goo.gl/TNCnb8vR3YZ6hCCy9" target="_blank" class="btn-map">Ver Ubicación en Maps &rarr;</a>
-              </div>
+                <div class="event-time">1:00 pm</div>
+                <a href="https://maps.app.goo.gl/4puismLnPvUiKFsf6" target="_blank" class="map-btn">Ver ubicación</a>
             </div>
 
-            <div class="event-card">
-              <!-- ICONO RECEPCIÓN (icono-recepcion.png) -->
-              <img src="icono-recepcion.png" alt="Recepción" class="event-icon-img" />
-              <div class="event-details">
-                <div class="event-type">Recepción &amp; Cena</div>
-                <div class="event-title">Eventos La Carreta</div>
-                <div class="event-time">8:00 PM</div>
-                <a href="https://maps.app.goo.gl/pXc7bXq41YbViA4V8" target="_blank" class="btn-map">Ver Ubicación en Maps &rarr;</a>
-              </div>
+            <!-- Recepción -->
+            <div class="event-block">
+                <div class="event-title">La carreta local de eventos</div>
+                <div class="event-time">8:00 pm</div>
+                <a href="https://maps.app.goo.gl/R7EmX4a9f7hC3Ujs9" target="_blank" class="map-btn">Ver ubicación</a>
             </div>
 
-          </div>
-
-          <div class="rsvp-text-only">
-            ~ No olvides confirmar tu asistencia ~
-          </div>
+            <!-- Nota de confirmación -->
+            <div class="footer-note">
+                No olvides confirmar tu asistencia
+            </div>
 
         </div>
-      </div>
     </div>
 
-    <!-- SOBRE CON TU FOTO DE PALOMA -->
-    <div class="envelope" id="envelopeBtn">
-      <div class="envelope-flap"></div>
-      <div class="envelope-pocket"></div>
-      <div class="wax-seal">
-        <!-- SELLO (sello.png) -->
-        <img src="sello.png" alt="Paloma" />
-      </div>
-      <div class="tap-hint">Toca para abrir</div>
-    </div>
-
-  </div>
-
-  <script>
-    const wrapper = document.getElementById('invitationWrapper');
-    const envelopeBtn = document.getElementById('envelopeBtn');
-
-    envelopeBtn.addEventListener('click', () => {
-      wrapper.classList.add('open');
-    });
-  </script>
 </body>
 </html>
