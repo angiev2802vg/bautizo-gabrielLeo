@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Bautizo - Gabriel Leonardo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         * {
             box-sizing: border-box;
@@ -13,6 +14,7 @@
 
         body {
             background-color: #eaf0e6;
+            /* Fondo con textura verde estilo Toile de Jouy */
             background-image: radial-gradient(#556B2F 0.5px, transparent 0.5px), radial-gradient(#3B4D20 0.5px, #eaf0e6 0.5px);
             background-size: 20px 20px;
             background-position: 0 0, 10px 10px;
@@ -21,19 +23,19 @@
             justify-content: center;
             align-items: center;
             overflow: hidden;
-            font-family: sans-serif;
+            font-family: 'Cormorant Garamond', serif;
         }
 
         /* Contenedor del sobre */
         .envelope-wrapper {
             position: relative;
-            width: 330px;
-            height: 470px;
+            width: 360px;
+            height: 520px;
             cursor: pointer;
             perspective: 1000px;
         }
 
-        /* Fondo del sobre */
+        /* Cuerpo del sobre */
         .envelope {
             position: absolute;
             width: 100%;
@@ -45,76 +47,241 @@
             overflow: hidden;
         }
 
-        /* Solapa superior */
+        /* Solapa superior del sobre */
         .flap {
             position: absolute;
             top: 0;
             left: 0;
             width: 0;
             height: 0;
-            border-left: 165px solid transparent;
-            border-right: 165px solid transparent;
-            border-top: 180px solid #f2f5f0;
+            border-left: 180px solid transparent;
+            border-right: 180px solid transparent;
+            border-top: 195px solid #f2f5f0;
             transform-origin: top;
             transition: transform 0.6s ease-in-out;
             z-index: 4;
             filter: drop-shadow(0 4px 6px rgba(0,0,0,0.08));
         }
 
-        /* Frente del sobre (bolsillo) */
+        /* Frente inferior del sobre */
         .pocket {
             position: absolute;
             bottom: 0;
             left: 0;
             width: 0;
             height: 0;
-            border-left: 165px solid #ffffff;
-            border-right: 165px solid #ffffff;
-            border-bottom: 235px solid #f8faf7;
+            border-left: 180px solid #ffffff;
+            border-right: 180px solid #ffffff;
+            border-bottom: 260px solid #f8faf7;
             z-index: 3;
             border-radius: 0 0 8px 8px;
         }
 
-        /* Texto de toque */
+        /* Sello de toque */
         .stamp {
             position: absolute;
-            top: 135px;
+            top: 150px;
             left: 50%;
             transform: translateX(-50%);
             z-index: 5;
             background: #C5A059;
             color: white;
-            padding: 8px 16px;
+            padding: 8px 18px;
             border-radius: 20px;
             font-size: 0.75rem;
             letter-spacing: 1.5px;
             text-transform: uppercase;
+            font-family: 'Montserrat', sans-serif;
             box-shadow: 0 4px 10px rgba(0,0,0,0.15);
             transition: opacity 0.4s ease;
         }
 
-        /* Marco que lleva tu PDF */
+        /* Tarjeta que sale del sobre con el diseño exacto */
         .card {
             position: absolute;
-            bottom: 15px;
-            left: 5%;
-            width: 90%;
-            height: 92%;
-            background: #fff;
-            border-radius: 6px;
+            bottom: 10px;
+            left: 3%;
+            width: 94%;
+            height: 96%;
+            background: #ffffff;
+            /* Forma de arco superior exacta */
+            border-top-left-radius: 180px;
+            border-top-right-radius: 180px;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
             z-index: 2;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            overflow: hidden;
+            padding: 30px 15px 15px 15px;
+            text-align: center;
+            overflow-y: auto;
+            border: 1px solid #E6D5B8;
         }
 
-        .card iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
+        /* Contenido de la invitación */
+        .inv-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            color: #556B2F;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            margin-top: 25px;
         }
 
-        /* Animación de apertura */
+        .inv-name {
+            font-family: 'Alex Brush', cursive;
+            font-size: 2.7rem;
+            color: #C5A059;
+            line-height: 1.1;
+            margin-bottom: 10px;
+        }
+
+        .inv-verse {
+            font-style: italic;
+            font-size: 0.8rem;
+            color: #666;
+            max-width: 280px;
+            margin: 0 auto 12px auto;
+            line-height: 1.3;
+        }
+
+        .inv-verse span {
+            display: block;
+            font-size: 0.7rem;
+            color: #C5A059;
+            margin-top: 2px;
+        }
+
+        .section-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            color: #556B2F;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .parents {
+            font-size: 0.95rem;
+            color: #333;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .parents .amp {
+            color: #C5A059;
+            font-size: 1.1rem;
+            display: block;
+            margin: 1px 0;
+        }
+
+        .main-padrinos-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            color: #556B2F;
+            text-transform: uppercase;
+            margin: 10px 0 6px 0;
+        }
+
+        /* 3 Columnas de Padrinos exactas con el & */
+        .godparents-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 4px;
+            margin-bottom: 15px;
+            padding: 0 5px;
+        }
+
+        .godparents-col {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .gp-name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.55rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            color: #444;
+            letter-spacing: 0.5px;
+        }
+
+        .gp-amp {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            color: #C5A059;
+            font-size: 0.85rem;
+            margin: 1px 0;
+        }
+
+        /* Sección Iglesia y Recepción divididas con línea vertical */
+        .events-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 5px;
+            position: relative;
+            padding: 0 5px;
+        }
+
+        .event-col {
+            width: 48%;
+            text-align: center;
+        }
+
+        /* Línea vertical divisora idéntica a la imagen */
+        .vertical-divider {
+            width: 1px;
+            height: 90px;
+            background-color: #C5A059;
+        }
+
+        .event-name {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #3B4D20;
+            margin-bottom: 2px;
+            line-height: 1.2;
+        }
+
+        .event-time {
+            font-size: 0.75rem;
+            color: #666;
+            margin-bottom: 6px;
+        }
+
+        .map-btn {
+            display: inline-block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.55rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #fff;
+            background-color: #556B2F;
+            padding: 4px 10px;
+            border-radius: 12px;
+            text-decoration: none;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .map-btn:hover {
+            background-color: #3B4D20;
+        }
+
+        /* Fecha inferior */
+        .footer-date {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            color: #556B2F;
+            text-transform: uppercase;
+            margin-top: 15px;
+        }
+
+        /* Animación de apertura del sobre */
         .envelope-wrapper.open .flap {
             transform: rotateX(180deg);
             z-index: 1;
@@ -125,9 +292,8 @@
             pointer-events: none;
         }
 
-        /* Salida y rebote del PDF */
         .envelope-wrapper.open .card {
-            transform: translateY(-160px) scale(1.08);
+            transform: translateY(-135px) scale(1.04);
             z-index: 5;
             box-shadow: 0 20px 40px rgba(0,0,0,0.25);
         }
@@ -141,8 +307,64 @@
         <div class="envelope"></div>
         <div class="pocket"></div>
         
+        <!-- Tarjeta Interactiva con el diseño exacto -->
         <div class="card">
-            <iframe src="invitacion-gabriel_20261109_232715_0000.pdf#toolbar=0"></iframe>
+            <div class="inv-title">Mi Bautizo</div>
+            <div class="inv-name">Gabriel Leonardo</div>
+            
+            <div class="inv-verse">
+                «Porque a sus ángeles mandará acerca de ti, que te guarden en todos tus caminos».
+                <span>— Salmo 91,11</span>
+            </div>
+
+            <div class="section-subtitle">Con la bendición de mis padres:</div>
+            <div class="parents">
+                Angélica Valdez
+                <span class="amp">&</span>
+                José Roberto Campa
+            </div>
+
+            <div class="main-padrinos-title">Mis Padrinos</div>
+            
+            <!-- Padrinos en 3 columnas con el ampersand (&) en medio -->
+            <div class="godparents-grid">
+                <div class="godparents-col">
+                    <span class="gp-name">Alinne Valdez</span>
+                    <span class="gp-amp">&</span>
+                    <span class="gp-name">Luis Carlos Campa</span>
+                </div>
+                <div class="godparents-col">
+                    <span class="gp-name">Abigail Cota</span>
+                    <span class="gp-amp">&</span>
+                    <span class="gp-name">Gabriel Juárez</span>
+                </div>
+                <div class="godparents-col">
+                    <span class="gp-name">Camila Morales</span>
+                    <span class="gp-amp">&</span>
+                    <span class="gp-name">Eduardo Pérez</span>
+                </div>
+            </div>
+
+            <!-- Iglesia y Recepción divididas con línea vertical -->
+            <div class="events-container">
+                <div class="event-col">
+                    <div class="event-name">Templo San Martín de Porres</div>
+                    <div class="event-time">1:00 pm</div>
+                    <a href="https://maps.app.goo.gl/4puismLnPvUiKFsf6" target="_blank" class="map-btn">Ver ubicación</a>
+                </div>
+
+                <div class="vertical-divider"></div>
+
+                <div class="event-col">
+                    <div class="event-name">La carreta local de eventos</div>
+                    <div class="event-time">8:00 pm</div>
+                    <a href="https://maps.app.goo.gl/R7EmX4a9f7hC3Ujs9" target="_blank" class="map-btn">Ver ubicación</a>
+                </div>
+            </div>
+
+            <div class="footer-date">
+                12 de diciembre de 2026
+            </div>
         </div>
     </div>
 
